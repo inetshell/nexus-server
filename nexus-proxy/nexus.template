@@ -5,8 +5,8 @@ server {
     ssl_certificate     /etc/letsencrypt/live/${NEXUS_DNS}/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/${NEXUS_DNS}/privkey.pem;
 
-    client_max_body_size 4G;
-    proxy_max_temp_file_size 4G;
+    client_max_body_size 4096m;
+    proxy_max_temp_file_size 1024m;
 
     location / {
         proxy_pass              http://nexus-server:8081/;
@@ -23,8 +23,8 @@ server {
     ssl_certificate     /etc/letsencrypt/live/${NEXUS_DNS}/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/${NEXUS_DNS}/privkey.pem;
 
-    client_max_body_size 4G;
-    proxy_max_temp_file_size 4G;
+    client_max_body_size 4096m;
+    proxy_max_temp_file_size 1024m;
 
     location / {
         proxy_pass              http://nexus-server:8082/;
@@ -41,8 +41,8 @@ server {
     ssl_certificate     /etc/letsencrypt/live/${NEXUS_DNS}/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/${NEXUS_DNS}/privkey.pem;
 
-    client_max_body_size 4G;
-    proxy_max_temp_file_size 4G;
+    client_max_body_size 4096m;
+    proxy_max_temp_file_size 1024m;
 
     location / {
         proxy_pass              http://nexus-server:8083/;
@@ -59,8 +59,8 @@ server {
     ssl_certificate     /etc/letsencrypt/live/${NEXUS_DNS}/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/${NEXUS_DNS}/privkey.pem;
 
-    client_max_body_size 4G;
-    proxy_max_temp_file_size 4G;
+    client_max_body_size 4096m;
+    proxy_max_temp_file_size 1024m;
 
     location / {
         proxy_pass              http://nexus-server:8084/;
