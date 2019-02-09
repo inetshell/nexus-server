@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+export CERTBOT_EMAIL=test@example.com
+export NEXUS_DNS=nexus.example.com

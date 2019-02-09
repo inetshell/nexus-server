@@ -1,0 +1,4 @@
+.idea
+nexus-proxy/log/
+nexus-server/data/
+vars/load_vars.sh

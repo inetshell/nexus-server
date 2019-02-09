@@ -1,0 +1,32 @@
+version: '3'
+services:
+  nexus-proxy:
+    build: ./nexus-proxy
+    restart: unless-stopped
+    container_name: nexus-proxy
+    ports:
+      - 80:80/tcp
+      - 443:443/tcp
+      - 8081:8081/tcp
+      - 8082:8082/tcp
+      - 8083:8083/tcp
+      - 8084:8084/tcp
+    environment:
+      - CERTBOT_EMAIL=${CERTBOT_EMAIL}
+      - NGINX_DNS=${NGINX_DNS}
+    volumes:
+      - ./nexus-proxy/log:/var/log/nginx
+  nexus-server:
+    image: sonatype/nexus3:latest
+    restart: unless-stopped
+    container_name: nexus-server
+    ports:
+      - 127.0.0.1:8081:8081/tcp
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    environment:
+      - INSTALL4J_ADD_VM_PARAMS=-Xms1200M -Xmx1200M -XX:MaxDirectMemorySize=2G
+    volumes:
+      - ./nexus-server/data:/nexus-data
