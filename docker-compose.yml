@@ -13,7 +13,7 @@ services:
       - 8084:8084/tcp
     environment:
       - CERTBOT_EMAIL=${CERTBOT_EMAIL}
-      - NGINX_DNS=${NGINX_DNS}
+      - NEXUS_DNS=${NEXUS_DNS}
     volumes:
       - ./nexus-proxy/log:/var/log/nginx
   nexus-server:
